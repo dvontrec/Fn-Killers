@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Nav from './Nav';
 class Home extends Component {
+  getData() {
+    alert('Data');
+  }
   render() {
     return (
       <div>
-        <h1>You are home</h1>
+        <button onClick={this.getData}>Button</button>
       </div>
     );
   }
