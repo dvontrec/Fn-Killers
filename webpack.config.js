@@ -8,9 +8,6 @@ const VENDER_LIBS = [
   'react-dom',
   'react-redux',
   'react-router-dom',
-  'redux',
-  'redux-thunk',
-  'lodash',
   'axios'
 ];
 
@@ -71,7 +68,18 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        node_venders: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: 1
+        }
+      }
+    }
+  }
 };
 
 // Export config object
