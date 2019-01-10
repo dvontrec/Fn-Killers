@@ -9,7 +9,9 @@ const VENDER_LIBS = [
   'react-redux',
   'react-router-dom',
   'redux',
-  'redux-thunk'
+  'redux-thunk',
+  'lodash',
+  'axios'
 ];
 
 // Create a config object
