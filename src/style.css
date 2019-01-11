@@ -2,3 +2,9 @@ body {
   background-color: teal;
   color: coral;
 }
+
+.statCard {
+  height: 130px;
+  background-color: azure;
+  text-decoration: underline;
+}
