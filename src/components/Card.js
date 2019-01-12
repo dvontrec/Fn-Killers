@@ -42,7 +42,7 @@ class Card extends Component {
   render() {
     return (
       <div className="statCard col-md-4">
-        <h2>{this.props.name}</h2>
+        <h2>{this.props.name.toUpperCase()}</h2>
         {this.renderComponent()}
       </div>
     );
