@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, HashRouter, IndexRoute } from 'react-router-dom';
 
 import Home from './Home';
-import Away from './Away';
 import Nav from './Nav';
 
 class App extends Component {
@@ -12,7 +11,6 @@ class App extends Component {
         <div>
           <Nav />
           <Route exact path="/" component={Home} />
-          <Route path="/away" component={Away} />
         </div>
       </HashRouter>
     );

@@ -19,21 +19,6 @@ class Nav extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link to="/away" className="nav-link">
-                Away <span className="sr-only">(current)</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">Link</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-        </div>
       </nav>
     );
   }

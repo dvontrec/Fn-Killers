@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+import SearchBar from './SearchBar';
+
 class Card extends Component {
   state = {
-    stats: null
+    stats: null,
+    name: this.props.name
   };
 
+  onSearchSubmit = user => {
+    // Sets the state to be the username from the search bar then calls get stats as a callback
+    this.setState({ name: user, stats: null }, this.getStats);
+  };
   componentDidMount() {
     this.getStats();
   }
 
   async getStats() {
-    let user = this.props.name;
+    let user = this.state.name;
     // let stats;
     let info = await Axios.get(
       `https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=${user}`
@@ -42,7 +49,8 @@ class Card extends Component {
   render() {
     return (
       <div className="statCard col-md-4">
-        <h2>{this.props.name.toUpperCase()}</h2>
+        <SearchBar onSubmit={this.onSearchSubmit} />
+        <h2>{this.state.name ? this.state.name.toUpperCase() : 'No name'}</h2>
         {this.renderComponent()}
       </div>
     );
