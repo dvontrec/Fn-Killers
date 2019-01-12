@@ -33,15 +33,19 @@ class Card extends Component {
 
   renderComponent() {
     if (this.state.stats) {
-      return (
-        <div>
-          <p>Kills: {this.state.stats.kills}</p>
-          <p>Total Matches: {this.state.stats.matchesplayed}</p>
-          <p>Wins: {this.state.stats.wins}</p>
-          <p>Win Rate: {this.state.stats.winrate}%</p>
-          <p>K/D: {this.state.stats.kd}</p>
-        </div>
-      );
+      if (this.state.stats.matchesplayed) {
+        return (
+          <div>
+            <p>Kills: {this.state.stats.kills}</p>
+            <p>Total Matches: {this.state.stats.matchesplayed}</p>
+            <p>Wins: {this.state.stats.wins}</p>
+            <p>Win Rate: {this.state.stats.winrate}%</p>
+            <p>K/D: {this.state.stats.kd}</p>
+          </div>
+        );
+      } else {
+        return <p>No User Data Found</p>;
+      }
     }
     return <p>Loading</p>;
   }
