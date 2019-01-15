@@ -6,7 +6,7 @@ services:
   - docker
 # before tests are ran build docker image
 before_install:
-  - docker build -t dvontrec/fn-killers -f Dockerfile.dev .
+  - docker build -t dvontrec/fn-killers .
 script:
   # SHOULD ADD TESTS
   - docker run dvontrec/fn-killers npm run build
