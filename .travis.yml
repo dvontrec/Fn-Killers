@@ -14,11 +14,7 @@ script:
   - docker run dvontrec/fn-killers ls
 # Steps before deploy:
 defore_deploy:
-  - ls
-  - mkdir ./build
-  - ls
-  - docker cp ./build fn-killers_web_1:app/build
-  - ls
+  - docker ps
 # Steps to deploy to github pages
 deploy:
   provider: pages
