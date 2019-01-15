@@ -3,6 +3,7 @@ import { Route, HashRouter, IndexRoute } from 'react-router-dom';
 
 import Home from './Home';
 import Nav from './Nav';
+import Footer from './Footer';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <div>
           <Nav />
           <Route exact path="/" component={Home} />
+          <Footer />
         </div>
       </HashRouter>
     );

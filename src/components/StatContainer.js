@@ -11,6 +11,10 @@ class StatContainer extends Component {
         <Card name="BossHeathen502" />
         <Card name="Lilsmokey61" />
         <Card name="ninja" />
+        <Card name="ninja" />
+        <Card name="ninja" />
+        <Card name="ninja" />
+        <Card name="ninja" />
       </div>
     );
   }
