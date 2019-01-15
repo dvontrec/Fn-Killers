@@ -1,0 +1,18 @@
+# Grants super user permissions
+sudo: required
+
+# travis ci installs docker into travis container
+services:
+  - docker
+# before tests are ran build docker image
+before_install:
+  - docker build -t dvontrec/fn-killers -f Dockerfile.dev .
+# SHOULD ADD TESTS
+# Steps to deploy to github pages
+deploy:
+  provider: pages
+  skip_cleanup: true
+  app: 'docker-react'
+  github_token: $github_token
+  on:
+    branch: master
