@@ -9,8 +9,9 @@ before_install:
   - docker build -t dvontrec/fn-killers -f Dockerfile.dev .
 script:
   # SHOULD ADD TESTS
-  - docker run dvontrec/fn-killers ls
+  - docker run dvontrec/fn-killers pwd
   - docker run dvontrec/fn-killers npm run build
+  - docker run dvontrec/fn-killers pwd
 # Steps to deploy to github pages
 deploy:
   provider: pages
