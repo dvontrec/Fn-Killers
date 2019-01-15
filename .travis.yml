@@ -1,37 +1,25 @@
-# # Grants super user permissions
-# sudo: required
+# Grants super user permissions
+sudo: required
 
-# # travis ci installs docker into travis container
-# services:
-#   - docker
-# # before tests are ran build docker image
-# before_install:
-#   - docker build -t dvontrec/fn-killers -f Dockerfile.dev .
-# script:
-#   # SHOULD ADD TESTS
-#   - docker run dvontrec/fn-killers pwd
-#   - docker run dvontrec/fn-killers ls
-# # Steps before deploy:
-# defore_deploy:
-#   - docker run dvontrec/fn-killers -f npm run build
-# # Steps to deploy to github pages
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: $github_token
-#   on:
-#     branch: master
-language: node_js
-node_js:
-  - 'stable'
-cache:
-  directories:
-    - node_modules
+# travis ci installs docker into travis container
+services:
+  - docker
+# before tests are ran build docker image
+before_install:
+  - docker build -t dvontrec/fn-killers -f Dockerfile.dev .
+  - docker-compose up
 script:
-  # - npm test
-  # - npm run test:coverage
-  - npm run build
-
+  # SHOULD ADD TESTS
+  - docker run dvontrec/fn-killers pwd
+  - docker run dvontrec/fn-killers ls
+# Steps before deploy:
+defore_deploy:
+  - ls
+  - mkdir ./build
+  - ls
+  - docker cp ./build fn-killers_web_1:app/build
+  - ls
+# Steps to deploy to github pages
 deploy:
   provider: pages
   skip_cleanup: true
@@ -39,3 +27,21 @@ deploy:
   local_dir: build
   on:
     branch: master
+# language: node_js
+# node_js:
+#   - 'stable'
+# cache:
+#   directories:
+#     - node_modules
+# script:
+#   # - npm test
+#   # - npm run test:coverage
+#   - npm run build
+
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $github_token
+#   local_dir: build
+#   on:
+#     branch: master
