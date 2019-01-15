@@ -7,7 +7,8 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <StatContainer />
+        {/* <StatContainer /> */}
+        <h1>API IS CURRENTLY DOWN</h1>
       </div>
     );
   }
