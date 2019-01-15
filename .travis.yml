@@ -1,22 +1,40 @@
-# Grants super user permissions
-sudo: required
+# # Grants super user permissions
+# sudo: required
 
-# travis ci installs docker into travis container
-services:
-  - docker
-# before tests are ran build docker image
-before_install:
-  - docker build -t dvontrec/fn-killers .
+# # travis ci installs docker into travis container
+# services:
+#   - docker
+# # before tests are ran build docker image
+# before_install:
+#   - docker build -t dvontrec/fn-killers .
+# script:
+#   # SHOULD ADD TESTS
+#   - docker run dvontrec/fn-killers npm run build
+#   - docker run dvontrec/fn-killers pwd
+#   - docker run dvontrec/fn-killers ls
+# # Steps to deploy to github pages
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $github_token
+#   local_dir: '/app/build'
+#   on:
+#     branch: master
+language: node_js
+node_js:
+  - 'stable'
+cache:
+  directories:
+    - node_modules
 script:
-  # SHOULD ADD TESTS
-  - docker run dvontrec/fn-killers npm run build
-  - docker run dvontrec/fn-killers pwd
-  - docker run dvontrec/fn-killers ls
-# Steps to deploy to github pages
+  # - npm test
+  # - npm run test:coverage
+  - npm run build
+
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  local_dir: '/app/build'
+  local_dir: build
   on:
     branch: master
