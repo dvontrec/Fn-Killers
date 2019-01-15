@@ -12,7 +12,8 @@ script:
   - docker run dvontrec/fn-killers pwd
   - docker run dvontrec/fn-killers ls
 # Steps before deploy:
-  -docker run dvontrec/fn-killers -f npm run build
+defore_deploy:
+  - docker run dvontrec/fn-killers -f npm run build
 # Steps to deploy to github pages
 deploy:
   provider: pages
