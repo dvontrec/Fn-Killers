@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rimraf build",
     "start": "webpack-dev-server --mode development --open",
+    "start-docker": "webpack-dev-server --mode development --host 0.0.0.0",
     "build": "NODE_ENV=production npm run clean && webpack --mode production",
     "deploy": "npm run build && git subtree push --prefix build origin gh-pages"
   },
