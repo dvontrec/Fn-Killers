@@ -1,0 +1,15 @@
+version: '3'
+services:
+  # Builds the web app in a docker container called web
+  web:
+    build:
+      context: .
+      # Uses the file 'Dockerfile.dev'
+      dockerfile: Dockerfile.dev
+    # Forwards port 8080 in container to port 8080 locally
+    ports:
+      - '8080:8080'
+    # ignores node_modules and grabs updates from the local files that are in the app
+    volumes:
+      - /app/node_modules
+      - .:/app
