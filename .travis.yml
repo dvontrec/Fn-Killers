@@ -11,7 +11,7 @@ script:
   # SHOULD ADD TESTS
 # Steps before deploy:
 defore_deploy:
-  # - docker run dvontrec/fn-killers -f npm run build
+  - docker run dvontrec/fn-killers -f npm run build
 # Steps to deploy to github pages
 deploy:
   provider: pages
