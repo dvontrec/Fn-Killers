@@ -13,12 +13,13 @@ script:
   - docker run dvontrec/fn-killers ls
 # Steps before deploy:
 defore_deploy:
-  - docker run dvontrec/fn-killers -f npm run build
+  # - docker run dvontrec/fn-killers -f npm run build
 # Steps to deploy to github pages
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
+  local_dir: build
   on:
     branch: master
 # language: node_js
